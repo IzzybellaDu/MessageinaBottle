@@ -1,0 +1,21 @@
+{% extends "MiaB/layout.html" %}
+
+{% block title %}
+    <title>Memory List</title>
+{% endblock %}
+
+{% block main %}
+    <div class="button-container"><a href="{% url 'newMemory' %}"><button class="button-text">Add a new memory.</button></a></div>
+    <div class="button-container"><a href="{% url 'random' %}"><button class="button-text">Generate random memory.</button></a></div>
+
+    {% for memory in memories %}
+    <a href="{% url 'fullscreen' memory.id %}">
+        <div class="smallNote">
+            <div class="content">
+                <h1>{{ memory.title }}</h1>
+                <p>{{ memory.bodyText }}</p>  
+            </div>
+        </div>
+    </a> 
+{% endfor %}
+{% endblock %}

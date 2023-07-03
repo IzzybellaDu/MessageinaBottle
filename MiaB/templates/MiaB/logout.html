@@ -1,0 +1,14 @@
+{% extends "MiaB/layout.html" %}
+{% block title %}
+    <title>Logout</title>
+{% endblock %}
+
+{% block main %}
+    <h2>Logout successful.</h2>
+    <br>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a class="ml-2" href="{% url 'login' %}">Log in again.</a>
+        </small>
+    </div>
+{% endblock %}}

@@ -1,0 +1,17 @@
+{% extends "MiaB/layout.html" %}
+
+{% block title %}
+    <title>New Memory</title>
+{% endblock %}
+
+{% block main %}
+    <form action="{% url 'newMemory' %}" method="post">
+        {% csrf_token %}
+        <input required autocomplete="off" type="text" name='title' placeholder="Title of Memory" maxlength="100">
+        <input required autocomplete="off" class="date" name="date" type="date">
+
+        <textarea required autocomplete="off" name="bodyText" placeholder="Description of Memory" rows="15" maxlength="800"></textarea>
+        <button type="submit" class="btn btn-success">Create Memory</button>
+    </form> 
+    
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "MiaB/layout.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>Register</title>
+{% endblock %}
+
+{% block main %}
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            {{ form | crispy }}
+            <div class="button-centre">
+                <button type="submit" class="btn btn-success">Register</button>
+            </div>
+        </fieldset>      
+    </form>
+    <br>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already have an account? <a class="ml-2" href="{% url 'login' %}">Login here.</a>
+        </small>
+    </div>
+{% endblock %}}

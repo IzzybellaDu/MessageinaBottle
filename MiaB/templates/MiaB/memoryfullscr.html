@@ -1,0 +1,23 @@
+{% extends "MiaB/layout.html" %}
+
+{% block title %}
+    <title>New Memory</title>
+{% endblock %}
+
+{% block main %}
+    <div class="fullscrNote">
+        <h1>{{ memory.title }}</h1>
+        <p class="note-date">{{ memory.date }}</p>
+
+        <p>{{ memory.bodyText }}</p>
+        <form action="{% url 'deleteMemory' %}" method="post">
+            {% csrf_token %}
+            <input hidden name="MemoryID" value="{{ memory.id }}">
+            <button type="submit" class="btn btn-danger">Delete memory</button>
+        </form>
+        
+    </div>
+
+    <a href="{% url 'memoryList' %}"><button class="btn btn-light" id="returnbutton">Return</button></a>
+
+{% endblock %}
